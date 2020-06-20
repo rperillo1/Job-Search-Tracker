@@ -19,14 +19,20 @@ class Application(models.Model):
         choices = STAGES,
         default = STAGES[0][0]
     ),
-    date_applied = models.DateField('date applied'),
+    date_applied = models.DateField(),
     title = models.CharField(max_length=100),
     company = models.CharField(max_length=100),
     description = models.TextField(),
     notes = models.TextField(),
     salary = models.CharField(max_length=20),
-    interest = models.IntegerField(),
+    interest_level = models.IntegerField(),
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.title} at {self.company} on {self.date_applied}"
+
+    # class Meta:
+    #     ordering = ['-date']
 
 
 class Interview(models.Model):
