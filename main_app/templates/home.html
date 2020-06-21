@@ -6,26 +6,11 @@
 <h1>Log In</h1>
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ user_form.as_p }}
     <input type="submit" class="btn" value="login">
     <input type="hidden" name="next" value="{{ next }}">
 </form>
-
-<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
+<h2>OR</h2>
+<a href="{% url 'signup' %}">Sign Up</a>
 
 {% endblock %}

@@ -2,5 +2,7 @@
 {% block content %}
 
 <h1>Applications Index page</h1>
-
+{% for application in applications %}
+<h5>{{ application.title }}</h5>
+{% endfor %}
 {% endblock %}
