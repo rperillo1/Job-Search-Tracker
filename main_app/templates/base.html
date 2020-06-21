@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
 </head>
 
 <body>
-    <nav>
-        <div>
-            <ul>
-                <li><a href="/" class="">&nbsp;&nbsp;Job Search Tracker</a></li>
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="/" class="">&nbsp;&nbsp;Job Search Tracker</a></li>
+                <li><a href="#">Item</a></li>
             </ul>
-            <ul class="">
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
                 {% if user.is_authenticated %}
                 {% comment %}
                 <!-- <li><a href="{% url 'toys_create' %}">Add Application</a></li> -->
