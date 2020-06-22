@@ -25,6 +25,7 @@
                 <!-- fix url here -->
                 <!-- <li><a href="{% url 'toys_create' %}">Add Application</a></li> -->
                 {% endcomment%}
+                <li><a href="{% url 'applications_index' %}">Applications</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
                 <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -41,17 +42,6 @@
                 <h1>Job Search Tracker</h1>
             </div>
         </div>
-        <div>
-            <h2>Log In</h2>
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
-                {{ user_form.as_p }}
-                <input type="submit" class="btn" value="login">
-                <input type="hidden" name="next" value="{{ next }}">
-            </form>
-            <h2>OR</h2>
-            <a href="{% url 'signup' %}">Sign Up</a>
-        </div>
 
         <div id="call" class="uk-cover-container" uk-grid>
             <div class="uk-width-1-1 uk-align-center">
@@ -60,7 +50,7 @@
                     cumque, rem sint cum voluptatibus molestiae facilis eius possimus
                     io nulla necessitatibus voluptates.
                 </h4>
-                <button class="uk-button uk-button-default"><a href="{% url 'login' %}">Sign Up</a></button> 
+                <button class="uk-button uk-button-default"><a href="{% url 'signup' %}">Sign Up</a></button> 
             </div>
         </div>
         <div id="brand" class="uk-cover-container" uk-grid>
