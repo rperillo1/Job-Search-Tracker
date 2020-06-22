@@ -2,7 +2,12 @@
 {% block content %}
 
 <h1>Interviews below:</h1>
-<a href="{% url 'interview_create' application_id %}"><h4>Create New Interview</h4></a>
 
+<a href="{% url 'interview_form' application_id %}"><h4>Create New Interview</h4></a>
+
+
+{% for i in interviews %}
+<h5>{{i.company_info}}</h5>
+{% endfor %}
 
 {% endblock %}
