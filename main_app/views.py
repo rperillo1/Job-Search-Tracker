@@ -3,7 +3,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .forms import UserForm
+from .forms import UserForm, InterviewForm
 from .models import Application, Skills, Interview
 # Create your views here.
 
@@ -13,6 +13,7 @@ def home(request):
     return render(request, 'home.html', {
         'user_form': user_form
     })
+
 
 def signup(request):
     error_message = ''
@@ -35,7 +36,7 @@ def signup(request):
 
 
 def applications_index(request):
-    applications = Application.objects.all()
+    applications = Application.objects.filter(user=request.user)
     return render(request, 'applications/index.html', {
         'applications': applications
     })
@@ -43,4 +44,39 @@ def applications_index(request):
 
 class ApplicationCreate(CreateView):
     model = Application
+    fields = ['status', 'date_applied', 'title', 'company',
+              'description', 'notes', 'salary', 'interest_level']
+
+    def form_valid(self, form):
+        # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user
+        # Let the CreateView do its usual
+        return super().form_valid(form)
+
+
+class InterviewList(ListView):
+    model = Interview
     fields = '__all__'
+
+
+# class InterviewCreate(CreateView):
+#     model = Interview
+#     fields = ['company_info', 'preparation_text', 'questions', 'rating']
+
+#     def form_valid(self, form):
+#         # Assign the logged in user (self.request.user)
+#         form.instance.application = self.request.application
+#         # Let the CreateView do its usual
+#         return super().form_valid(form)
+
+
+def interview_create(request, app_id):
+    form = InterviewForm(request.POST)
+    if form.is_valid():
+    # don't save the form to the db until it
+    # has the cat_id assigned
+        new_interview = form.save(commit=False)
+        new_interview.application_id = app_id
+        new_interview.save()
+    return redirect('interview_index', application_id=app_id)
+
