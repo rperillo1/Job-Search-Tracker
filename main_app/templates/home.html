@@ -1,16 +1,128 @@
-{% extends 'base.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Home Page</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job-Search Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+</head>
 
-<h1>Log In</h1>
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ user_form.as_p }}
-    <input type="submit" class="btn" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
-<h2>OR</h2>
-<a href="{% url 'signup' %}">Sign Up</a>
+<body>
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><img class="uk-navbar-item uk-logo" src="{% static 'main_app/img/nav.png' %}" alt=""></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                {% if user.is_authenticated %}
+                {% comment %}
+                <!-- fix url here -->
+                <!-- <li><a href="{% url 'toys_create' %}">Add Application</a></li> -->
+                {% endcomment%}
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                {% else %}
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div id="hero" class="uk-cover-container uk-grid">
+            <img src="{% static 'main_app/img/hero.jpg' %}" alt="hero image">
+            <!-- Photo by Marten Bjork on Unsplash -->
+            <div class="uk-position-center-left">
+                <h1>Job Search Tracker</h1>
+            </div>
+        </div>
+        <div>
+            <h2>Log In</h2>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                <input type="submit" class="btn" value="login">
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+            <h2>OR</h2>
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </div>
 
-{% endblock %}
+        <div id="call" class="uk-cover-container" uk-grid>
+            <div class="uk-width-1-1 uk-align-center">
+                <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </h2>
+                <h4>Nihil corrupti earum ipsum soluta aut. Est soluta repellendus, 
+                    cumque, rem sint cum voluptatibus molestiae facilis eius possimus
+                    io nulla necessitatibus voluptates.
+                </h4>
+                <button class="uk-button uk-button-default"><a href="{% url 'login' %}">Sign Up</a></button> 
+            </div>
+        </div>
+        <div id="brand" class="uk-cover-container" uk-grid>
+            <div class="uk-width-1-1 uk-align-center">
+                <img class="uk-align-center" src="{% static 'main_app/img/logo.png' %}" alt="logo main">
+                <h2>The solution to finding a dev job is here!</h2>
+                <h5>JST empowers you to find your next career move</h5>
+            </div>
+        </div>
+        <div class="uk-child-width-1-2@m cards" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img class="uk-align-center" src="{% static 'main_app/img/undraw_1.png' %}" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Lorem ipsum</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Lorem ipsum</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    </div>
+                    <div class="uk-card-media-bottom">
+                        <img class="uk-align-center" src="{% static 'main_app/img/undraw_2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-child-width-1-2@m cards" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img class="uk-align-center" src="{% static 'main_app/img/undraw_3.png' %}" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Lorem ipsum</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">Lorem ipsum</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    </div>
+                    <div class="uk-card-media-bottom">
+                        <img class="uk-align-center" src="{% static 'main_app/img/undraw_4.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

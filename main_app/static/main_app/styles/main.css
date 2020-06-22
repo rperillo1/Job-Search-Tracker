@@ -1,3 +1,62 @@
+:root {
+    --main-accent: #57B4D3;
+    --main-nav: #E4E4E4;
+}
+
 body {
     
+}
+
+.uk-logo {
+    max-height: inherit;
+    background-repeat: no-repeat;
+}
+.uk-navbar-nav li a{
+    color: var(--main-accent);
+    font-size: 1.25em;
+
+}
+#hero {
+    height: 75vh;
+}
+#hero h1 {
+    margin-left: 5vw;
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--main-accent);
+}
+#call {
+    background-color: var(--main-nav);
+    color: var(--main-accent);
+    text-align: center;
+    padding: 50px 0;
+    margin: 4vh auto;
+}
+#call button {
+    background-color: white;
+    margin-top: 4vh;
+    padding: 1em 5em;
+    border-radius: 18px;
+
+}
+#call h2, h4 {
+    
+}
+#call button a {
+    color: var(--main-accent);
+    font-size: 1.7em;
+    
+}
+.cards img{
+    height: 30vh;
+}
+#brand {
+    background-color: var(--main-accent);
+    text-align: center;
+}
+#brand h2, h5 {
+    color: white;
+}
+#brand img {
+    max-height: 75vh;
 }
