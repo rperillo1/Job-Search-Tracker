@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Job-Search Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
 </head>
 
@@ -14,13 +16,13 @@
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
                 <li class="uk-active"><a href="/" class="">&nbsp;&nbsp;Job Search Tracker</a></li>
-                <li><a href="#">Item</a></li>
             </ul>
         </div>
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
                 {% if user.is_authenticated %}
                 {% comment %}
+                <!-- fix url here -->
                 <!-- <li><a href="{% url 'toys_create' %}">Add Application</a></li> -->
                 {% endcomment%}
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
