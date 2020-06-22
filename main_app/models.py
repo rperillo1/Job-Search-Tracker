@@ -32,6 +32,9 @@ class Application(models.Model):
     def __str__(self):
         return f"{self.title} at {self.company} on {self.date_applied}"
 
+    def get_absolute_url(self):
+        return reverse('applications_index')
+
     # class Meta:
     #     ordering = ['-date']
 
@@ -42,6 +45,9 @@ class Interview(models.Model):
     questions = models.TextField()
     rating = models.IntegerField()
     application = models.ForeignKey(Application, on_delete=models.CASCADE)
+
+    # def get_absolute_url(self):
+    #     return reverse('interview_index')
 
 
 class Skills(models.Model):
