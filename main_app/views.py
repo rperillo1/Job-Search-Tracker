@@ -54,20 +54,13 @@ class ApplicationCreate(CreateView):
         return super().form_valid(form)
 
 
-class InterviewList(ListView):
-    model = Interview
-    fields = '__all__'
 
-
-# class InterviewCreate(CreateView):
-#     model = Interview
-#     fields = ['company_info', 'preparation_text', 'questions', 'rating']
-
-#     def form_valid(self, form):
-#         # Assign the logged in user (self.request.user)
-#         form.instance.application = self.request.application
-#         # Let the CreateView do its usual
-#         return super().form_valid(form)
+def interview_index(request, app_id):
+    interviews = Interview.objects.filter(application=app_id)
+    return render(request, 'interviews/index.html', {
+        'application_id': app_id,
+        'interviews': interviews
+    })
 
 
 def interview_create(request, app_id):
@@ -79,4 +72,3 @@ def interview_create(request, app_id):
         new_interview.application_id = app_id
         new_interview.save()
     return redirect('interview_index', application_id=app_id)
-

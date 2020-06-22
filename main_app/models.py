@@ -47,7 +47,7 @@ class Interview(models.Model):
     application = models.ForeignKey(Application, on_delete=models.CASCADE)
 
     # def get_absolute_url(self):
-    #     return reverse('interview_index')
+    #     return reverse('interview_index', kwargs={'app_id': self.application})
 
 
 class Skills(models.Model):
