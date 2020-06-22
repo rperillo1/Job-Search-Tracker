@@ -26,7 +26,7 @@ def signup(request):
             user = form.save()
             # This is how we log a user in via code
             login(request, user)
-            return redirect('index')
+            return redirect('home')
         else:
             error_message = 'Invalid sign up - try again'
     # A bad POST or a GET request, so render signup.html with an empty form
@@ -56,7 +56,6 @@ class ApplicationCreate(CreateView):
         return super().form_valid(form)
 
 
-
 def interview_index(request, app_id):
     interviews = Interview.objects.filter(application=app_id)
     return render(request, 'interviews/index.html', {
@@ -65,12 +64,16 @@ def interview_index(request, app_id):
     })
 
 
+def interview_form(request, app_id):
+    return render(request, 'interviews/form.html')
+
 def interview_create(request, app_id):
     form = InterviewForm(request.POST)
     if form.is_valid():
-    # don't save the form to the db until it
-    # has the cat_id assigned
+        # don't save the form to the db until it
+        # has the cat_id assigned
         new_interview = form.save(commit=False)
         new_interview.application_id = app_id
         new_interview.save()
     return redirect('interview_index', application_id=app_id)
+
