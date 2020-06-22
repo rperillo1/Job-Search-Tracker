@@ -4,7 +4,7 @@
 }
 
 body {
-    
+    min-height: 100vh;
 }
 
 .uk-logo {
@@ -39,7 +39,7 @@ body {
     border-radius: 18px;
 
 }
-#call h2, h4 {
+#call h2, #call h4 {
     
 }
 #call button a {
@@ -54,7 +54,7 @@ body {
     background-color: var(--main-accent);
     text-align: center;
 }
-#brand h2, h5 {
+#brand h2, #brand h5 {
     color: white;
 }
 #brand img {
