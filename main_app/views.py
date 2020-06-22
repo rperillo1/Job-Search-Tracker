@@ -63,7 +63,9 @@ def interview_index(request, app_id):
 
 
 def interview_form(request, app_id):
-    return render(request, 'interviews/form.html')
+    return render(request, 'interviews/form.html', {
+        'interview': InterviewForm,
+    })
 
 def interview_create(request, app_id):
     form = InterviewForm(request.POST)
