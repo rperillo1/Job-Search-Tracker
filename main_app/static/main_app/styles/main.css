@@ -20,14 +20,15 @@ body {
 }
 
 #hero {
-    height: 75vh;
+    height: 80vh;
 }
 
 #hero h1 {
     margin-left: 5vw;
     font-size: 3em;
     font-weight: bolder;
-    color: var(--main-accent);
+    color: white;
+    text-shadow: 2px 2px 4px var(--main-accent);
 }
 
 #call {
@@ -85,3 +86,27 @@ span.step {
     text-align: center;
     width: 3em; 
   }
+
+  .applications button {
+      background-color: var(--main-nav);
+      border-radius: 1em;
+  }
+  .applications a {
+      color: var(--main-accent);
+  }
+  .bold {
+      font-weight: bolder;
+      font-size: 1.2em;
+  }
+  #app-hero {
+      height: 45vh;
+  }
+  #app-hero button {
+      margin: 10px auto;
+      background-color: var(--main-accent);
+      border-radius: 1.5em;
+}
+  #app-hero h1 {
+      color: var(--main-accent);
+      text-shadow: 1px 1px 2px var(--main-nav);
+}

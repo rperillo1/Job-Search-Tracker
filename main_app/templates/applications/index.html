@@ -1,18 +1,50 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
 {% block content %}
 
 
-<h1>{{user.username}}'s Current Applications</h1>
-<p><span class="step">1/10</span>
-</p>
+<div id="app-hero" class="uk-cover-container">
+    <img src="{% static 'main_app/img/app_index.jpg' %}" alt="hero image">
+    <!-- Photo by JESHOOTS.COM on Unsplash -->
+    <div class="uk-position-center">
+        <h1>{{user.username}}'s Current Applications</h1>
+        <button class="uk-button uk-button-default"><a href="{% url 'applications_create' %}">Add an application</a></button>
+    </div>
+</div>
 
+<div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
+    {% for application in applications %}
+    <div>
+        <div class="uk-card uk-card-large uk-card-default uk-card-hover uk-card-body applications">
+            <h3 class="uk-card-title"><a href="{% url 'applications_show' application.id %}">{{ application.title }}</a></h3>
+            <p>Status: <span class="bold">{{ application.status }}</p></span>
+            <p>You applied: <span class="bold">{{ application.date_applied|naturalday }}</span></p>
+            <p>Company: <span class="bold">{{ application.company }}</p></span>
+            <p>Description: {{ application.description }}</p>
+            {% if application.interest_level < 3 %}
+            <p>Interest: <span class="step" style="color:blue;">{{ application.interest_level }}/10</span></p>
+            {% endif %}
+            {% if application.interest_level > 3 and application.interest_level < 6.5 %}
+            <p>Interest: <span class="step" style="color:yellow;">{{ application.interest_level }}/10</span></p>
+            {% endif %}
+            {% if application.interest_level >= 6.5 %}
+            <p>Interest: <span class="step" style="color:red;">{{ application.interest_level }}/10</span></p>
+            {% endif %}
+            <button class="uk-button uk-button-default"><a href="{% url 'interview_index' application.id %}">Interviews</a></button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% comment %}
 <a class="uk-button uk-button-default" href="{% url 'applications_create' %}"><h4>Create New Application</h4></a>
 {% for application in applications %}
 <h5>{{ application.title }}</h5>
 <p>${{ application.salary|intcomma }}</p>
 <a href="{% url 'interview_index' application.id %}"><h5>Go to Interviews</h5></a>
 {% endfor %}
+{% endcomment %}
 
 {% endblock %}
 
