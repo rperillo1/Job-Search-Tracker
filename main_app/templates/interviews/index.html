@@ -6,11 +6,19 @@
 <a href="{% url 'interview_form' application_id %}"><h4>Create New Interview</h4></a>
 
 
+<div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
+    {% for i in interviews %}
+    <div>
+        <div class="uk-card uk-card-large uk-card-default uk-card-hover uk-card-body applications">
+            <h3 class="uk-card-title"><a href="{% url 'interview_detail' application_id i.id %}"> View Interview</a></h3>
+            <p>Company Info: <span class="bold">{{ i.company_info }}</p></span>
+            <p>Preparation: <span class="bold">{{ i.preparation_text }}</p></span>
+            <p>Questions: <span class="bold">{{ i.questions }}</p></span>
+            <p>How it went: <span class="bold">{{ i.rating }}</p></span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-{% for i in interviews %}
-<h5>{{i.company_info}}</h5>
-<a href="{% url 'interview_detail' application_id i.id %}"> View Interview</a>
-
-{% endfor %}
 
 {% endblock %}

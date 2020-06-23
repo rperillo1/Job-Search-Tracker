@@ -13,4 +13,5 @@ urlpatterns = [
     path('applications/<int:pk>/delete/', views.ApplicationDelete.as_view(), name='application_delete'),
     path('applications/<int:application_pk>/interview/<int:pk>', views.InterviewShow.as_view(), name='interview_detail'),
     path('applications/<int:application_pk>/interview/<int:pk>/delete', views.InterviewDelete.as_view(), name='interview_delete'),
+    path('applications/<int:application_pk>/interview/<int:pk>/update', views.InterviewUpdate.as_view(), name='interview_update'),
 ]
