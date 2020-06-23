@@ -80,7 +80,10 @@ def interview_index(request, app_id):
     return render(
         request,
         "interviews/index.html",
-        {"application_id": app_id, "interviews": interviews},
+        {"application_id": app_id, 
+         "interviews": interviews,
+         
+         },
     )
 
 
@@ -104,3 +107,5 @@ def interview_create(request, app_id):
     return redirect(reverse('interview_index', kwargs={'app_id': app_id}))
 
 
+class InterviewShow(DetailView):
+    model = Interview
