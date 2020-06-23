@@ -8,7 +8,7 @@
     <img src="{% static 'main_app/img/app_index.jpg' %}" alt="hero image">
     <!-- Photo by JESHOOTS.COM on Unsplash -->
     <div class="uk-position-center">
-        <h1>{{user.username}}'s Current Applications</h1>
+        <h1>{{ user.username|capfirst }}'s Current Applications</h1>
         <button class="uk-button uk-button-default"><a href="{% url 'applications_create' %}">Add an application</a></button>
     </div>
 </div>
@@ -18,8 +18,8 @@
     <div>
         <div class="uk-card uk-card-large uk-card-default uk-card-hover uk-card-body applications">
             <h3 class="uk-card-title"><a href="{% url 'applications_show' application.id %}">{{ application.title }}</a></h3>
-            <p>Status: <span class="bold">{{ application.status }}</p></span>
-            <p>You applied: <span class="bold">{{ application.date_applied|naturalday }}</span></p>
+            <p>Status: <span class="bold">{{ application.get_status_display }}</p></span>
+            <p>You applied: <span class="bold">{{ application.date_applied|naturalday|capfirst }}</span></p>
             <p>Company: <span class="bold">{{ application.company }}</p></span>
             <p>Description: {{ application.description }}</p>
             {% if application.interest_level < 3 %}

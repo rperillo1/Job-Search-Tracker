@@ -110,3 +110,16 @@ span.step {
       color: var(--main-accent);
       text-shadow: 1px 1px 2px var(--main-nav);
 }
+.danger-button {
+    color: white;
+}
+.center {
+    text-align: center;
+}
+.app-detail h1, .app-detail h2 {
+    font-weight: bolder;
+}
+.app-detail {
+    margin-top: 8vh;
+    min-height: 10vh;
+}
