@@ -6,8 +6,11 @@
 <a href="{% url 'interview_form' application_id %}"><h4>Create New Interview</h4></a>
 
 
+
 {% for i in interviews %}
+<a href="{% url 'interview_detail' application_id i.id %}"> View Interview</a>
 <h5>{{i.company_info}}</h5>
+
 {% endfor %}
 
 {% endblock %}
