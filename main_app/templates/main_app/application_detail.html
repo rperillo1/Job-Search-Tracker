@@ -3,14 +3,16 @@
 {% block content %}
 <div class="uk-grid">
     <div class="uk-width-2-3@m center app-detail">
-        <h1>{{ application.title }}</h1>
-        <h2>{{ application.company }}</h2>
+        <h1>{{ application.title|upper }}</h1>
+        <h2>{{ application.company|upper }}</h2>
         <h4>{{ application.get_status_display }}</h4>
         <h4>{{ application.date_applied|naturalday|capfirst }}</h4>
         <h4>${{ application.salary|intcomma }}</h4>
         <h4>Interest Level: {{ application.interest_level }}</h4>
+        <h4>{{ application.notes }}</h4>
         <hr class="uk-divider-icon">
-        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button" href="{% url 'application_delete'  application.id %}">Delete</a></button>
+        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
+                href="{% url 'application_delete'  application.id %}">Delete</a></button>
     </div>
     <div class="uk-width-1-3@m center app-detail" style="background-color: plum;">
         <h2>For Vue </h2>
@@ -19,4 +21,3 @@
 
 
 {% endblock %}
-

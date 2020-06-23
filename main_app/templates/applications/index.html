@@ -9,7 +9,8 @@
     <!-- Photo by JESHOOTS.COM on Unsplash -->
     <div class="uk-position-center">
         <h1>{{ user.username|capfirst }}'s Current Applications</h1>
-        <button class="uk-button uk-button-default"><a href="{% url 'applications_create' %}">Add an application</a></button>
+        <button class="uk-button uk-button-default uk-align-center"><a href="{% url 'applications_create' %}">Add an
+                application</a></button>
     </div>
 </div>
 
@@ -17,7 +18,8 @@
     {% for application in applications %}
     <div>
         <div class="uk-card uk-card-large uk-card-default uk-card-hover uk-card-body applications">
-            <h3 class="uk-card-title"><a href="{% url 'applications_show' application.id %}">{{ application.title }}</a></h3>
+            <h3 class="uk-card-title"><a
+                    href="{% url 'applications_show' application.id %}">{{ application.title|upper }}</a></h3>
             <p>Status: <span class="bold">{{ application.get_status_display }}</p></span>
             <p>You applied: <span class="bold">{{ application.date_applied|naturalday|capfirst }}</span></p>
             <p>Company: <span class="bold">{{ application.company }}</p></span>
@@ -31,20 +33,24 @@
             {% if application.interest_level >= 6.5 %}
             <p>Interest: <span class="step" style="color:red;">{{ application.interest_level }}/10</span></p>
             {% endif %}
-            <button class="uk-button uk-button-default"><a href="{% url 'interview_index' application.id %}">Interviews</a></button>
+            <button class="uk-button uk-button-default"><a
+                    href="{% url 'interview_index' application.id %}">Interviews</a></button>
         </div>
     </div>
     {% endfor %}
 </div>
 
 {% comment %}
-<a class="uk-button uk-button-default" href="{% url 'applications_create' %}"><h4>Create New Application</h4></a>
+<a class="uk-button uk-button-default" href="{% url 'applications_create' %}">
+    <h4>Create New Application</h4>
+</a>
 {% for application in applications %}
 <h5>{{ application.title }}</h5>
 <p>${{ application.salary|intcomma }}</p>
-<a href="{% url 'interview_index' application.id %}"><h5>Go to Interviews</h5></a>
+<a href="{% url 'interview_index' application.id %}">
+    <h5>Go to Interviews</h5>
+</a>
 {% endfor %}
 {% endcomment %}
 
 {% endblock %}
-
