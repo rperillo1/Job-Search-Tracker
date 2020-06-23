@@ -66,6 +66,11 @@ class ApplicationDelete(DeleteView):
     success_url = '/applications/'
 
 
+class ApplicationUpdate(UpdateView):
+    model = Application
+    fields = ['status', 'date_applied', 'salary', 'interest_level', 'description', 'title']
+
+
 def interview_index(request, app_id):
     interviews = Interview.objects.filter(application=app_id)
     return render(

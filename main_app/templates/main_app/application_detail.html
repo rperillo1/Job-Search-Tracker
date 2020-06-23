@@ -55,6 +55,8 @@
         <hr class="uk-divider-icon">
         <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
                 href="{% url 'application_delete'  application.id %}">Delete</a></button>
+        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
+                href="{% url 'application_update'  application.id %}">Update</a></button>
     </div>
     <div id="app" class="uk-width-1-3@m center app-detail" style="background-color: plum;">
         <section v-if="errored">
