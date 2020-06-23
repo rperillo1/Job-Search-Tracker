@@ -117,3 +117,11 @@ class InterviewDelete(DeleteView):
     def get_success_url(self):
         return reverse('interview_index', kwargs={'app_id': self.kwargs['application_pk']})
 
+
+class InterviewUpdate(UpdateView):
+    model = Interview
+    fields = ['company_info', 'preparation_text', 'questions', 'rating']
+
+    def get_success_url(self):
+        print('self kwargs', self.kwargs)
+        return reverse('interview_detail', kwargs={'application_pk': self.kwargs['application_pk'], 'pk': self.kwargs['pk']})
