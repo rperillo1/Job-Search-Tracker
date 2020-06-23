@@ -11,7 +11,7 @@ urlpatterns = [
     path('applications/<int:app_id>/interview/form/', views.interview_form, name='interview_form'),
     path('applications/<int:app_id>/interview/create/', views.interview_create, name='interview_create'),
     path('applications/<int:pk>/delete/', views.ApplicationDelete.as_view(), name='application_delete'),
-    path('applications/<int:application_pk>/interview/<int:pk>', views.InterviewShow.as_view(), name='interview_detail'),
-    path('applications/<int:application_pk>/interview/<int:pk>/delete', views.InterviewDelete.as_view(), name='interview_delete'),
-    path('applications/<int:application_pk>/interview/<int:pk>/update', views.InterviewUpdate.as_view(), name='interview_update'),
+    path('applications/<int:application_pk>/interview/<int:pk>/', views.InterviewShow.as_view(), name='interview_detail'),
+    path('applications/<int:application_pk>/interview/<int:pk>/delete/', views.InterviewDelete.as_view(), name='interview_delete'),
+    path('applications/<int:application_pk>/interview/<int:pk>/update/', views.InterviewUpdate.as_view(), name='interview_update'),
 ]
