@@ -1,5 +1,6 @@
 :root {
     --main-accent: #57B4D3;
+    /* not actually the nav color */
     --main-nav: #E4E4E4;
 }
 
@@ -71,3 +72,16 @@ body {
 #brand img {
     max-height: 75vh;
 }
+span.step {
+    background: var(--main-nav);
+    border-radius: 1.5em;
+    -moz-border-radius: 1.5em;
+    -webkit-border-radius: 1.5em;
+    color: var(--main-accent);
+    display: inline-block;
+    font-weight: bold;
+    line-height: 3em;
+    margin-right: 5px;
+    text-align: center;
+    width: 3em; 
+  }

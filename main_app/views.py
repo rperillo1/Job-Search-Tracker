@@ -38,9 +38,10 @@ def signup(request):
 def applications_index(request):
     applications = Application.objects.filter(user=request.user)
     user = request.user
+ 
     return render(request, 'applications/index.html', {
         'applications': applications,
-        'user': user
+        'user': user,
     })
 
 
