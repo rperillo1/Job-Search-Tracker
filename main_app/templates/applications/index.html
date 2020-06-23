@@ -34,7 +34,7 @@
             <p>Interest: <span class="step" style="color:red;">{{ application.interest_level }}/10</span></p>
             {% endif %}
             <button class="uk-button uk-button-default"><a
-                    href="{% url 'interview_index' application.id %}">Interviews</a></button>
+                    href="{% url 'interview_index' application.id %}">{{ application.title }} Interviews</a></button>
         </div>
     </div>
     {% endfor %}
