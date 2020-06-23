@@ -42,7 +42,7 @@ def applications_index(request):
     return render(
         request,
         "applications/index.html",
-        {"applications": applications, "user": user,},
+        {"applications": applications, "user": user, },
     )
 
 
@@ -68,11 +68,11 @@ class ApplicationCreate(CreateView):
         form.instance.user = self.request.user
         # Let the CreateView do its usual
         return super().form_valid(form)
-    
+
+
 class ApplicationDelete(DeleteView):
     model = Application
     success_url = '/applications/'
-    
 
 
 def interview_index(request, app_id):
@@ -80,9 +80,9 @@ def interview_index(request, app_id):
     return render(
         request,
         "interviews/index.html",
-        {"application_id": app_id, 
+        {"application_id": app_id,
          "interviews": interviews,
-         
+
          },
     )
 
@@ -109,3 +109,11 @@ def interview_create(request, app_id):
 
 class InterviewShow(DetailView):
     model = Interview
+
+
+class InterviewDelete(DeleteView):
+    model = Interview
+
+    def get_success_url(self):
+        return reverse('interview_index', kwargs={'app_id': self.kwargs['application_pk']})
+

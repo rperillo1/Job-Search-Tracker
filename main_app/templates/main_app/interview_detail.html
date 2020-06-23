@@ -2,7 +2,10 @@
 {% load humanize %}
 {% block content %}
 
-<a href=""> Delete </a>
+
+<a href="{% url 'interview_delete' interview.application_id interview.id %}"> Delete </a>
+
+
 <h1>{{interview.company_info}}</h1>
 
 {% endblock %}
