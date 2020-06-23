@@ -35,7 +35,7 @@ def applications_index(request):
     return render(
         request,
         "applications/index.html",
-        {"applications": applications, "user": user, },
+        {"applications": applications, "user": user,},
     )
 
 
@@ -63,12 +63,20 @@ class ApplicationCreate(CreateView):
 
 class ApplicationDelete(DeleteView):
     model = Application
-    success_url = '/applications/'
+    success_url = "/applications/"
 
 
 class ApplicationUpdate(UpdateView):
     model = Application
-    fields = ['status', 'date_applied', 'salary', 'interest_level', 'description', 'title']
+    fields = [
+        "status",
+        "title",
+        "date_applied",
+        "salary",
+        "interest_level",
+        "description",
+        'notes'
+    ]
 
 
 def interview_index(request, app_id):
@@ -76,18 +84,16 @@ def interview_index(request, app_id):
     return render(
         request,
         "interviews/index.html",
-        {"application_id": app_id,
-         "interviews": interviews,
-
-         },
+        {"application_id": app_id, "interviews": interviews,},
     )
 
 
 def interview_form(request, app_id):
-    return render(request, 'interviews/form.html', {
-        'application_id': app_id,
-        'interview': InterviewForm
-    })
+    return render(
+        request,
+        "interviews/form.html",
+        {"application_id": app_id, "interview": InterviewForm},
+    )
 
 
 def interview_create(request, app_id):
@@ -96,7 +102,7 @@ def interview_create(request, app_id):
         new_interview = form.save(commit=False)
         new_interview.application_id = app_id
         new_interview.save()
-    return redirect(reverse('interview_index', kwargs={'app_id': app_id}))
+    return redirect(reverse("interview_index", kwargs={"app_id": app_id}))
 
 
 class InterviewShow(DetailView):
@@ -107,13 +113,21 @@ class InterviewDelete(DeleteView):
     model = Interview
 
     def get_success_url(self):
-        return reverse('interview_index', kwargs={'app_id': self.kwargs['application_pk']})
+        return reverse(
+            "interview_index", kwargs={"app_id": self.kwargs["application_pk"]}
+        )
 
 
 class InterviewUpdate(UpdateView):
     model = Interview
-    fields = ['company_info', 'preparation_text', 'questions', 'rating']
+    fields = ["company_info", "preparation_text", "questions", "rating"]
 
     def get_success_url(self):
-        print('self kwargs', self.kwargs)
-        return reverse('interview_detail', kwargs={'application_pk': self.kwargs['application_pk'], 'pk': self.kwargs['pk']})
+        print("self kwargs", self.kwargs)
+        return reverse(
+            "interview_detail",
+            kwargs={
+                "application_pk": self.kwargs["application_pk"],
+                "pk": self.kwargs["pk"],
+            },
+        )
