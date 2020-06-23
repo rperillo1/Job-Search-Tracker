@@ -13,7 +13,7 @@ STAGES = (
     ('T', '3rd Interview'),
 )
 
-# Create your models here.
+
 class Application(models.Model):
     status = models.CharField(
         max_length = 1,
@@ -35,8 +35,6 @@ class Application(models.Model):
     def get_absolute_url(self):
         return reverse('applications_index')
 
-    # class Meta:
-    #     ordering = ['-date']
 
 
 class Interview(models.Model):
@@ -46,8 +44,6 @@ class Interview(models.Model):
     rating = models.IntegerField()
     application = models.ForeignKey(Application, on_delete=models.CASCADE)
 
-    # def get_absolute_url(self):
-    #     return reverse('interview_index', kwargs={'app_id': self.application})
 
 
 class Skills(models.Model):
