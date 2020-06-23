@@ -135,3 +135,17 @@ span.step {
     margin-top: 8vh;
     min-height: 10vh;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-text {
+    padding-top: 1em;
+}
+
+.teal-text {
+    color: var(--main-accent);
+}
