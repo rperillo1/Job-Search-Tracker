@@ -2,6 +2,7 @@
 {% load humanize %}
 {% block content %}
 
+<a href="{% url 'application_delete'  application.id %}"> Delete </a>
 <h1>{{application.title}}</h1>
 <h2>{{application.company}}</h2>
 

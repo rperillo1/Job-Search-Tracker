@@ -68,6 +68,11 @@ class ApplicationCreate(CreateView):
         form.instance.user = self.request.user
         # Let the CreateView do its usual
         return super().form_valid(form)
+    
+class ApplicationDelete(DeleteView):
+    model = Application
+    success_url = '/applications/'
+    
 
 
 def interview_index(request, app_id):
