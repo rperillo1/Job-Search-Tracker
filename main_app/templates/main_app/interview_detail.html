@@ -4,8 +4,11 @@
 
 
 <a href="{% url 'interview_delete' interview.application_id interview.id %}"> Delete </a>
-
+<a href="{% url 'interview_update' interview.application_id interview.id %}"> Update </a>
 
 <h1>{{interview.company_info}}</h1>
+<h1>{{interview.preparation_text}}</h1>
+<h1>{{interview.questions}}</h1>
+<h1>{{interview.rating}}</h1>
 
 {% endblock %}
