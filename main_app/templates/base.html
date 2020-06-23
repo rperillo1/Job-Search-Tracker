@@ -9,7 +9,7 @@
     <title>Job-Search Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
     <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     
 </head>
 
@@ -17,7 +17,7 @@
     <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><img class="uk-navbar-item uk-logo" src="{% static 'main_app/img/nav.png' %}" alt=""></li>
+                <li class="uk-active"><a href="/"><img class="uk-navbar-item uk-logo" src="{% static 'main_app/img/nav.png' %}" alt="navigation logo"></a></li>
             </ul>
         </div>
         <div class="uk-navbar-right">
@@ -38,6 +38,8 @@
     </nav>
     {% block content %}
     {% endblock %}
+    
+    
 </body>
 
 </html>
