@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'main_app/img/favicon.png' %}" type="image/png">
     <title>Job-Search Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
-    {% load static %}
     <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
 </head>
@@ -35,11 +36,10 @@
         </div>
     </nav>
     <main>
-        <div id="hero" class="uk-cover-container uk-grid">
-            <img src="{% static 'main_app/img/hero.jpg' %}" alt="hero image">
-            <!-- Photo by Marten Bjork on Unsplash -->
-            <div class="uk-position-center-left">
-                <h1>Job Search Tracker</h1>
+        <div id="hero" class="uk-cover-container">
+            <video src="{% static 'main_app/video/hero.mp4' %}" autoplay loop muted playsinline uk-cover></video>
+            <div class="uk-position-center-right">
+                <h1>JST<br>Job Search Tracker</h1>
             </div>
         </div>
 
