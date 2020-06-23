@@ -1,21 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'main_app/img/favicon.png' %}" type="image/png">
     <title>Job-Search Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
-    {% load static %}
     <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    
 </head>
 
 <body>
     <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="/" class="">&nbsp;&nbsp;Job Search Tracker</a></li>
+                <li class="uk-active"><img class="uk-navbar-item uk-logo" src="{% static 'main_app/img/nav.png' %}" alt=""></li>
             </ul>
         </div>
         <div class="uk-navbar-right">

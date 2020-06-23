@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Applications Index page</h1>
+
+<h1>{{user.username}}'s Current Applications</h1>
+
 <a href="{% url 'applications_create' %}"><h4>Create New Application</h4></a>
 {% for application in applications %}
 <h5>{{ application.title }}</h5>
@@ -9,3 +11,4 @@
 {% endfor %}
 
 {% endblock %}
+
