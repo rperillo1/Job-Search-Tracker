@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -79,7 +80,10 @@ def interview_index(request, app_id):
 
 
 def interview_form(request, app_id):
-    return render(request, "interviews/form.html")
+    return render(request, 'interviews/form.html', {
+        'application_id': app_id,
+        'interview': InterviewForm
+    })
 
 
 def interview_create(request, app_id):
@@ -90,5 +94,8 @@ def interview_create(request, app_id):
         new_interview = form.save(commit=False)
         new_interview.application_id = app_id
         new_interview.save()
-    return redirect("interview_index", application_id=app_id)
+
+    # return redirect('interview_index', application_id=app_id)
+    return redirect(reverse('interview_index', kwargs={'app_id': app_id}))
+
 
