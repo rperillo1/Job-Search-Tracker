@@ -37,6 +37,7 @@ def signup(request):
 
 def applications_index(request):
     applications = Application.objects.filter(user=request.user)
+    
     user = request.user
 
     return render(
@@ -109,3 +110,8 @@ def interview_create(request, app_id):
 
 class InterviewShow(DetailView):
     model = Interview
+
+class InterviewDelete(DeleteView):
+    model = Interview
+    success_url = '/applications/<int:app_id>/interview/'
+    
