@@ -47,9 +47,6 @@ body {
 
 }
 
-#call h2,
-#call h4 {}
-
 #call button a {
     color: var(--main-accent);
     font-size: 1.7em;
@@ -73,6 +70,7 @@ body {
 #brand img {
     max-height: 75vh;
 }
+
 span.step {
     background: var(--main-nav);
     border-radius: 1.5em;
@@ -84,29 +82,56 @@ span.step {
     line-height: 3em;
     margin-right: 5px;
     text-align: center;
-    width: 3em; 
-  }
-
-  .applications button {
-      background-color: var(--main-nav);
-      border-radius: 1em;
-  }
-  .applications a {
-      color: var(--main-accent);
-  }
-  .bold {
-      font-weight: bolder;
-      font-size: 1.2em;
-  }
-  #app-hero {
-      height: 45vh;
-  }
-  #app-hero button {
-      margin: 10px auto;
-      background-color: var(--main-accent);
-      border-radius: 1.5em;
+    width: 3em;
 }
-  #app-hero h1 {
-      color: var(--main-accent);
-      text-shadow: 1px 1px 2px var(--main-nav);
+
+.applications button {
+    background-color: var(--main-nav);
+    border-radius: 1em;
+}
+
+.applications a {
+    color: var(--main-accent);
+}
+
+.bold {
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+#app-hero {
+    height: 45vh;
+}
+
+#app-hero a {
+    color: white;
+}
+
+#app-hero button {
+    margin: 10px auto;
+    background-color: var(--main-accent);
+    border-radius: 1.5em;
+}
+
+#app-hero h1 {
+    color: var(--main-accent);
+    text-shadow: 1px 1px 2px var(--main-nav);
+}
+
+.danger-button {
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+.app-detail h1,
+.app-detail h2 {
+    font-weight: bolder;
+}
+
+.app-detail {
+    margin-top: 8vh;
+    min-height: 10vh;
 }
