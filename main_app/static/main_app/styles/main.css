@@ -153,3 +153,10 @@ span.step {
 .app-form {
     margin-top: 8vh;
 }
+.app-fan .ldBar-label:after {
+    content: "";
+    font-size: 1em;
+}
+.app-fan {
+    color: black;
+}

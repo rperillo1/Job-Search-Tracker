@@ -10,11 +10,14 @@
     <link rel="shortcut icon" href="{% static 'main_app/img/favicon.png' %}" type="image/png">
     <title>Job-Search Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
+    <link rel="stylesheet" href="{% static 'main_app/styles/loading-bar.min.css' %}">
     <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
     <script defer src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script defer src="{% static 'main_app/js/vue.js' %}" ></script>
     <script defer src="{% static 'main_app/js/app_vue.js' %}"></script>
+    <script src="{% static 'main_app/js/loading-bar.min.js' %}"></script>
+
     
 </head>
 
@@ -51,7 +54,11 @@
             <h4>{{ application.get_status_display }}</h4>
             <h4>{{ application.date_applied|naturalday|capfirst }}</h4>
             <h4>${{ application.salary|intcomma }}</h4>
-            <h4>Interest Level: {{ application.interest_level }}</h4>
+        
+            <div class="myBar label-center uk-align-center app-fan"
+            >
+            Interest Level:
+            </div>
             <h4>{{ application.description }}</h4>
             <h4>{{ application.notes }}</h4>
             <hr class="uk-divider-icon">
@@ -80,6 +87,21 @@
             </section>
         </div>
     </div>
+    <div id="interest" style="display: none;">
+        {{application.interest_level}}
+    </div>
+    
 </body>
+<script defer>
+    var interest = document.getElementById('interest').innerText * 10
+
+    var bar = new ldBar(".myBar", {
+        "stroke": "#57B4D3",
+        "stroke-width": 10,
+        "preset": "fan",
+        "value" : interest
+
+    })
+</script>
 
 </html>
