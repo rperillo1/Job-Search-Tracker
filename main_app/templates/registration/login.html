@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="ui-kit-grid">
+    <div class="uk-container-center login-div">
+        <div class="uk-width-1-3 uk-align-center">
+        <h1 class="center">Log In</h1>
 
-<h1>Log In</h1>
-
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+        <form class="uk-form login-form uk-align-center" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input id="login-button" type="submit" class="uk-button uk-button-primary uk-align-center" value="log in">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -160,3 +160,10 @@ span.step {
 .app-fan {
     color: black;
 }
+.login-div {
+    margin-top: 25%;
+}
+#login-button {
+    background-color: var(--main-accent);
+    border-radius: .5em;
+}
