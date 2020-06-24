@@ -161,6 +161,14 @@ span.step {
     color: black;
 }
 
+.login-div {
+    margin-top: 25vh;
+}
+#login-button {
+    background-color: var(--main-accent);
+    border-radius: .5em;
+}
+
 .interview-info {
     margin-top: 0px;
 }
@@ -168,4 +176,19 @@ span.step {
 .interview-title {
     margin-bottom: 10px;
     color: var(--main-accent);
+}
+.sign_up_container {
+    border: 1px solid red;
+    width: 700px;
+    margin: 0 auto;
+}
+.sign_up_container h1 {
+   text-align: center;
+}
+.helptext{
+    visibility: hidden;
+  }
+.sign_up {
+    border: solid 2px green;
+    margin-left: 50px;
 }

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+<div class="sign_up_container">
 <h1>Sign Up</h1>
 
 <form method="post" action="{% url 'signup' %}" class="sign_up">
@@ -9,5 +9,6 @@
     {{ form.as_p }}
     <input type="submit" class="btn" value="Sign Up">
 </form>
+</div>
 
 {% endblock %}
