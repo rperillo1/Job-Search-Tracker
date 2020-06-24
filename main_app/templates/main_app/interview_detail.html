@@ -4,10 +4,14 @@
 
 <div class="uk-grid">
     <div class="uk-width-2-3@m center app-detail">
-        <h1>{{ interview.company_info }}</h1>
-        <h1>{{ interview.preparation_text}}</h1>
-        <h1>{{ interview.questions }}</h1>
-        <h1>{{ interview.rating }}</h1>
+        <h5 class='interview-title'>Company Info:</h5>
+        <h4 class='interview-info'>{{ interview.company_info }}</h4>
+        <h5 class='interview-title'>Preparations:</h5>
+        <h4 class='interview-info'>{{ interview.preparation_text}}</h4>
+        <h5 class='interview-title'>Questions:</h5>
+        <h4 class='interview-info'>{{ interview.questions }}</h4>
+        <h5 class='interview-title'>How the interview went:</h5>
+        <h4 class='interview-info'>{{ interview.rating }}</h4>
 
         <hr class="uk-divider-icon">
         <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"

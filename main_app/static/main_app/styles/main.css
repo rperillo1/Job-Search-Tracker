@@ -160,6 +160,7 @@ span.step {
 .app-fan {
     color: black;
 }
+
 .login-div {
     margin-top: 25vh;
 }
@@ -167,3 +168,13 @@ span.step {
     background-color: var(--main-accent);
     border-radius: .5em;
 }
+
+.interview-info {
+    margin-top: 0px;
+}
+
+.interview-title {
+    margin-bottom: 10px;
+    color: var(--main-accent);
+}
+
