@@ -178,3 +178,11 @@ span.step {
     color: var(--main-accent);
 }
 
+.update-btn {
+    margin-top: 0px;
+    background-color: rgb(212, 212, 86);
+}
+
+.update-btn:hover {
+    background-color: rgb(223, 223, 71);
+}
