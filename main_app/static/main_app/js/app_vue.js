@@ -6,11 +6,11 @@ const searchTerm = transformStr(jobTitle)
 console.log(searchTerm)
 
 const options = {
-  url: 'https://jobs.github.com/positions.json?search=' + searchTerm +'&location=remote',
+  url: 'https://cors-anywhere.herokuapp.com/' + 'https://jobs.github.com/positions.json?search=' + searchTerm +'&location=remote',
   method: 'GET',
-  headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-  }}
+}
+
+
 
 const vueApp = new Vue({
     delimiters: ['${','}'],
@@ -25,6 +25,8 @@ const vueApp = new Vue({
     mounted () {
         axios(options)
         .then(response => {
+            console.log(response.headers)
+            console.log(response.config)
             this.info = response.data.slice(0,5) 
         })
         .catch(error => {
