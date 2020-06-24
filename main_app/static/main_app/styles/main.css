@@ -161,7 +161,7 @@ span.step {
     color: black;
 }
 .login-div {
-    margin-top: 25%;
+    margin-top: 25vh;
 }
 #login-button {
     background-color: var(--main-accent);
