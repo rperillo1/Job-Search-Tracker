@@ -10,10 +10,44 @@
     <link rel="shortcut icon" href="{% static 'main_app/img/favicon.png' %}" type="image/png">
     <title>Job-Search Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
+    <link rel="stylesheet" href="{% static 'main_app/styles/loading-bar.min.css' %}">
     <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
     <script defer src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="{% static 'main_app/js/vue.js' %}" ></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script defer src="{% static 'main_app/js/vue.js' %}" ></script>
+    <script defer src="{% static 'main_app/js/app_vue.js' %}"></script>
+    <script src="{% static 'main_app/js/loading-bar.min.js' %}"></script>
+    <style type="text/css">
+        @keyframes ldio-8ks2byb8n4v {
+          0% { background: #6ac4f8 }
+          12.5% { background: #6ac4f8 }
+          12.625% { background: #57b4d3 }
+          100% { background: #57b4d3 }
+        }
+        .ldio-8ks2byb8n4v div {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          background: #57b4d3;
+          animation: ldio-8ks2byb8n4v 4.545454545454545s linear infinite;
+        }
+        .loadingio-spinner-blocks-sv06lwfyxy {
+          width: 200px;
+          height: 200px;
+          display: inline-block;
+          overflow: hidden;
+          background: #ffffff;
+        }
+        .ldio-8ks2byb8n4v {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          transform: translateZ(0) scale(1);
+          backface-visibility: hidden;
+          transform-origin: 0 0;
+        }
+        .ldio-8ks2byb8n4v div { box-sizing: content-box; }
+        </style>
     
 </head>
 
@@ -43,70 +77,78 @@
 
 
 
-<div class="uk-grid">
-    <div class="uk-width-2-3@m center app-detail">
-        <h1>{{ application.title|upper }}</h1>
-        <h2>{{ application.company|upper }}</h2>
-        <h4>{{ application.get_status_display }}</h4>
-        <h4>{{ application.date_applied|naturalday|capfirst }}</h4>
-        <h4>${{ application.salary|intcomma }}</h4>
-        <h4>Interest Level: {{ application.interest_level }}</h4>
-        <h4>{{ application.notes }}</h4>
-        <hr class="uk-divider-icon">
-        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
-                href="{% url 'application_delete'  application.id %}">Delete</a></button>
-        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
-                href="{% url 'application_update'  application.id %}">Update</a></button>
-    </div>
-    <div id="app" class="uk-width-1-3@m center app-detail" style="background-color: plum;">
-        <section v-if="errored">
-            <p>sorry no info</p>
-        </section>
-        <section v-else>
-            <div v-if="loading">Loading...</div>
-            <div v-else
-                 v-for="job in info"
+    <div class="uk-grid">
+        <div class="uk-width-2-3@m center app-detail">
+            <h1 id="vue-search">{{ application.title|upper }}</h1>
+            <h2>{{ application.company|upper }}</h2>
+            <h4>{{ application.get_status_display }}</h4>
+            <h4>{{ application.date_applied|naturalday|capfirst }}</h4>
+            <h4>${{ application.salary|intcomma }}</h4>
+        
+            <div class="myBar label-center uk-align-center app-fan"
             >
-        {{ job.company }}
+            Interest Level:
+            <br>
+            </div>
+            <h4>{{ application.description }}</h4>
+            <h4>{{ application.notes }}</h4>
+            <hr class="uk-divider-icon">
+            <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
+                    href="{% url 'application_update'  application.id %}">Update</a></button>
+            <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
+                    href="{% url 'application_delete'  application.id %}">Delete</a></button>
         </div>
-        </section>
+        <div id="app" class="uk-width-1-3@m label-none app-detail">
+            <section v-if="errored">
+                <p>sorry no info</p>
+            </section>
+            <section v-else>
+                <div v-if="loading">
+                
+
+                <div class="loadingio-spinner-blocks-sv06lwfyxy"><div class="ldio-8ks2byb8n4v">
+                <div style='left:38px;top:38px;animation-delay:0s'></div>
+                <div style='left:80px;top:38px;animation-delay:0.5681818181818181s'></div>
+                <div style='left:122px;top:38px;animation-delay:1.1363636363636362s'></div>
+                <div style='left:38px;top:80px;animation-delay:3.9772727272727266s'></div>
+                <div style='left:122px;top:80px;animation-delay:1.7045454545454544s'></div>
+                <div style='left:38px;top:122px;animation-delay:3.4090909090909087s'></div>
+                <div style='left:80px;top:122px;animation-delay:2.8409090909090904s'></div>
+                <div style='left:122px;top:122px;animation-delay:2.2727272727272725s'></div>
+                </div></div>
+
+                </div>
+                <div v-else
+                >
+                <!-- <template> -->
+                <h2>More jobs from GitHub:</h2>
+            <ul class="uk-list">
+                <li v-for="job in info" :key="job.id" >
+                    <a :href="job.url" target="_blank">${ job.company }, ${ job.title }, ${ job.location }</a>
+                </li>
+            </ul>
+                </div>
+            <!-- </template> -->
+            </section>
+        </div>
     </div>
-</div>
-
-
-<script>
-const options = {
-  url: 'https://jobs.github.com/positions.json?search=node',
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-  }}
-
-new Vue({
-    el: '#app',
-    data () {
-        return {
-            info: null,
-            loading: true,
-            errored: false
-        }
-    },
-    filters: {
-    },
-    mounted () {
-        axios(options)
-        .then(response => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-            this.errored = true.data
-        })
-        .finally(() => this.loading = false)
-    }
-})
-</script>
-
+    <div id="interest" style="display: none;">
+        {{application.interest_level}}
+    </div>
+    
 </body>
+<script defer>
+    var interest = document.getElementById('interest').innerText
+
+    var bar = new ldBar(".myBar", {
+        "stroke": "#57B4D3",
+        "stroke-width": 10,
+        "preset": "fan",
+        "min": 0,
+        "max": 10,
+        "value" : interest
+
+    })
+</script>
 
 </html>

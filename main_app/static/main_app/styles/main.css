@@ -149,3 +149,14 @@ span.step {
 .teal-text {
     color: var(--main-accent);
 }
+
+.app-form {
+    margin-top: 8vh;
+}
+.app-fan .ldBar-label:after {
+    content: "";
+    font-size: 1em;
+}
+.app-fan {
+    color: black;
+}
