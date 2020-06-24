@@ -4,6 +4,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm, InterviewForm
 from .models import Application, Skills, Interview
 
@@ -27,7 +29,7 @@ def signup(request):
     context = {"form": form, "error_message": error_message}
     return render(request, "registration/signup.html", context)
 
-
+@login_required
 def applications_index(request):
     applications = Application.objects.filter(user=request.user)
     user = request.user
@@ -39,11 +41,11 @@ def applications_index(request):
     )
 
 
-class ApplicationShow(DetailView):
+class ApplicationShow(DetailView, LoginRequiredMixin):
     model = Application
 
 
-class ApplicationCreate(CreateView):
+class ApplicationCreate(CreateView, LoginRequiredMixin):
     model = Application
     fields = [
         "status",
@@ -61,12 +63,12 @@ class ApplicationCreate(CreateView):
         return super().form_valid(form)
 
 
-class ApplicationDelete(DeleteView):
+class ApplicationDelete(DeleteView, LoginRequiredMixin):
     model = Application
     success_url = "/applications/"
 
 
-class ApplicationUpdate(UpdateView):
+class ApplicationUpdate(UpdateView, LoginRequiredMixin):
     model = Application
     fields = [
         "status",
@@ -78,7 +80,7 @@ class ApplicationUpdate(UpdateView):
         'notes'
     ]
 
-
+@login_required
 def interview_index(request, app_id):
     interviews = Interview.objects.filter(application=app_id)
     return render(
@@ -87,7 +89,7 @@ def interview_index(request, app_id):
         {"application_id": app_id, "interviews": interviews,},
     )
 
-
+@login_required
 def interview_form(request, app_id):
     return render(
         request,
@@ -95,7 +97,7 @@ def interview_form(request, app_id):
         {"application_id": app_id, "interview": InterviewForm},
     )
 
-
+@login_required
 def interview_create(request, app_id):
     form = InterviewForm(request.POST)
     if form.is_valid():
@@ -105,11 +107,11 @@ def interview_create(request, app_id):
     return redirect(reverse("interview_index", kwargs={"app_id": app_id}))
 
 
-class InterviewShow(DetailView):
+class InterviewShow(DetailView, LoginRequiredMixin):
     model = Interview
 
 
-class InterviewDelete(DeleteView):
+class InterviewDelete(DeleteView, LoginRequiredMixin):
     model = Interview
 
     def get_success_url(self):
@@ -118,7 +120,7 @@ class InterviewDelete(DeleteView):
         )
 
 
-class InterviewUpdate(UpdateView):
+class InterviewUpdate(UpdateView, LoginRequiredMixin):
     model = Interview
     fields = ["company_info", "preparation_text", "questions", "rating"]
 
