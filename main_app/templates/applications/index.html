@@ -17,7 +17,7 @@
 <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
     {% for application in applications %}
     <div>
-        <div class="uk-card uk-card-large uk-card-default uk-card-hover uk-card-body applications">
+        <div class="uk-card uk-card-large uk-card-default uk-card-hover uk-card-body applications wrap-txt">
             <h3 class="uk-card-title"><a
                     href="{% url 'applications_show' application.id %}">{{ application.title|upper }}</a></h3>
             <p>Status: <span class="bold">{{ application.get_status_display }}</p></span>
