@@ -42,17 +42,6 @@
     {% endfor %}
 </div>
 
-{% comment %}
-<a class="uk-button uk-button-default" href="{% url 'applications_create' %}">
-    <h4>Create New Application</h4>
-</a>
-{% for application in applications %}
-<h5>{{ application.title }}</h5>
-<p>${{ application.salary|intcomma }}</p>
-<a href="{% url 'interview_index' application.id %}">
-    <h5>Go to Interviews</h5>
-</a>
-{% endfor %}
-{% endcomment %}
+
 
 {% endblock %}
