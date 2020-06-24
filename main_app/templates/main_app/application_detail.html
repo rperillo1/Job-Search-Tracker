@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css">
     <link rel="stylesheet" href="{% static 'main_app/styles/main.css' %}">
     <script defer src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="{% static 'main_app/js/vue.js' %}" ></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script defer src="{% static 'main_app/js/vue.js' %}" ></script>
+    <script defer src="{% static 'main_app/js/app_vue.js' %}"></script>
     
 </head>
 
@@ -43,84 +44,42 @@
 
 
 
-<div class="uk-grid">
-    <div class="uk-width-2-3@m center app-detail">
-        <h1 id="vue-search">{{ application.title|upper }}</h1>
-        <h2>{{ application.company|upper }}</h2>
-        <h4>{{ application.get_status_display }}</h4>
-        <h4>{{ application.date_applied|naturalday|capfirst }}</h4>
-        <h4>${{ application.salary|intcomma }}</h4>
-        <h4>Interest Level: {{ application.interest_level }}</h4>
-        <h4>{{ application.description }}</h4>
-        <h4>{{ application.notes }}</h4>
-        <hr class="uk-divider-icon">
-        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
-                href="{% url 'application_delete'  application.id %}">Delete</a></button>
-        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
-                href="{% url 'application_update'  application.id %}">Update</a></button>
+    <div class="uk-grid">
+        <div class="uk-width-2-3@m center app-detail">
+            <h1 id="vue-search">{{ application.title|upper }}</h1>
+            <h2>{{ application.company|upper }}</h2>
+            <h4>{{ application.get_status_display }}</h4>
+            <h4>{{ application.date_applied|naturalday|capfirst }}</h4>
+            <h4>${{ application.salary|intcomma }}</h4>
+            <h4>Interest Level: {{ application.interest_level }}</h4>
+            <h4>{{ application.description }}</h4>
+            <h4>{{ application.notes }}</h4>
+            <hr class="uk-divider-icon">
+            <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
+                    href="{% url 'application_update'  application.id %}">Update</a></button>
+            <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
+                    href="{% url 'application_delete'  application.id %}">Delete</a></button>
+        </div>
+        <div id="app" class="uk-width-1-3@m center app-detail">
+            <section v-if="errored">
+                <p>sorry no info</p>
+            </section>
+            <section v-else>
+                <div v-if="loading">Loading...</div>
+                <div v-else
+                >
+                <!-- <template> -->
+                <h2>More jobs from GitHub:</h2>
+            <ul class="uk-list">
+                <li v-for="job in info" :key="job.id" >
+                    <a :href="job.url" target="_blank">${ job.company }, ${ job.title }, ${ job.location }</a>
+                </li>
+            </ul>
+                </div>
+            <!-- </template> -->
+            </section>
+        </div>
     </div>
-    <div id="app" class="uk-width-1-3@m center app-detail">
-        <section v-if="errored">
-            <p>sorry no info</p>
-        </section>
-        <section v-else>
-            <div v-if="loading">Loading...</div>
-            <div v-else
-            >
-            <!-- v-text="job.company" -->
-            <template>
-            <h2>More jobs from GitHub:</h2>
-           <ul class="uk-list">
-               <li v-for="job in info" :key="job.id" >
-                  <a :href="job.url" target="_blank">${ job.company }, ${ job.title }, ${ job.location }</a>
-               </li>
-           </ul>
-            </div>
-        </template>
-        </section>
-    </div>
-</div>
-
-
-<script>
-function transformStr(str) {
-    return str.replace(/\s/g, '+')
-}
-const jobTitle = document.getElementById('vue-search').innerText
-const searchTerm = transformStr(jobTitle)
-console.log(searchTerm)
-
-const options = {
-  url: 'https://jobs.github.com/positions.json?search=' + searchTerm +'&location=remote',
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json;charset=UTF-8',
-  }}
-
-const vueApp = new Vue({
-    delimiters: ['${','}'],
-    el: '#app',
-    data () {
-        return {
-            info: null,
-            loading: true,
-            errored: false
-        }
-    },
-    mounted () {
-        axios(options)
-        .then(response => {
-            this.info = response.data.slice(0,5) 
-        })
-        .catch(error => {
-            console.log(error)
-            this.errored = true
-        })
-        .finally(() => this.loading = false)
-    }
-})
-</script>
-
 </body>
 
 </html>
