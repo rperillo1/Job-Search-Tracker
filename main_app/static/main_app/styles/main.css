@@ -135,3 +135,85 @@ span.step {
     margin-top: 8vh;
     min-height: 10vh;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-text {
+    padding-top: 1em;
+}
+
+.teal-text {
+    color: var(--main-accent);
+}
+
+.app-form {
+    margin-top: 8vh;
+}
+.app-fan .ldBar-label:after {
+    content: "";
+    font-size: 1em;
+}
+.app-fan {
+    color: black;
+}
+
+.login-div {
+    margin-top: 25vh;
+}
+#login-button {
+    background-color: var(--main-accent);
+    border-radius: .5em;
+}
+
+.interview-info {
+    margin-top: 0px;
+}
+
+.interview-title {
+    margin-bottom: 10px;
+    color: var(--main-accent);
+}
+
+.update-btn {
+    margin-top: 0px;
+    background-color: rgb(212, 212, 86);
+}
+
+.update-btn:hover {
+    background-color: rgb(223, 223, 71);
+}
+
+.uk-table-hover tbody tr:hover {
+    background: var(--main-accent);
+}
+
+.sign_up_container {
+    width: 800px;
+    margin: 0 auto;
+}
+.helptext{
+    visibility: hidden;
+  }
+.sign_up_container h1 {
+      text-align: center;
+      color: var(--main-accent);
+  }
+  .sign_up .btn{
+      width: 100px;
+      height: 20px;
+      color: white;
+      background-color: var(--main-accent);
+  }
+  .sign_up {
+      margin: 60px;
+  }
+  .jobsearch{
+      width: 400px;
+      height: 120px;  
+      margin: 30px;
+      
+  }

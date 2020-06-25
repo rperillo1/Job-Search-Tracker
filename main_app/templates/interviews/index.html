@@ -1,18 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<<<<<<< HEAD
 <h1>Interviews below:</h1>
 
 <a href="{% url 'applications_index' %}">go back to apllication</a>
 
 <a href="{% url 'interview_form' application_id %}"><h4>Create New Interview</h4></a>
 
+=======
+<div class='flex-container'>
+    <h1>Interviews below:</h1>
+</div>
+<div class='flex-container'>
+    <a href="{% url 'interview_form' application_id %}">
+        <h4>Create New Interview</h4>
+    </a>
+</div>
+>>>>>>> master
 
 <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
     {% for i in interviews %}
     <div>
         <div class="uk-card uk-card-large uk-card-default uk-card-hover uk-card-body applications">
-            <h3 class="uk-card-title"><a href="{% url 'interview_detail' application_id i.id %}"> View Interview</a></h3>
+            <h3 class="uk-card-title"><a href="{% url 'interview_detail' application_id i.id %}"> View Interview</a>
+            </h3>
             <p>Company Info: <span class="bold">{{ i.company_info }}</p></span>
             <p>Preparation: <span class="bold">{{ i.preparation_text }}</p></span>
             <p>Questions: <span class="bold">{{ i.questions }}</p></span>
