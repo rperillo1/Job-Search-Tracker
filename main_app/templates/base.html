@@ -30,6 +30,7 @@
                 <!-- fix url here -->
                 <!-- <li><a href="{% url 'toys_create' %}">Add Application</a></li> -->
                 {% endcomment%}
+                <li><a id="nav-jobs" href="#">Find Jobs</a></li>
                 <li><a href="{% url 'applications_index' %}">Applications</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
@@ -42,7 +43,39 @@
     {% block content %}
     {% endblock %}
     
+    <div id="jobs-modal" class="uk-child-width-1-1@s uk-grid-match modal-div" uk-grid>
+        <div class="jobs-modal-content">
+            <h2>Find More Jobs Here: </h2>
+            <div class='logo-container'>
     
+                <a href="https://www.indeed.com/" target="_blank">
+                    <img src="https://d3fw5vlhllyvee.cloudfront.net/allspark/static/images/indeed-share-image-b01727.png"
+                        class="jobsearch" alt=""></a>
+                <a href="https://www.linkedin.com/jobs/" target="_blank">
+                    <img src="https://www.onrec.com/sites/onrec/directory/files/Linkedin-Logo.png" class="jobsearch" id='linkedin'
+                        alt=""></a>
+                <a href="https://www.glassdoor.com/member/home/index.htm" target="_blank">
+                    <img src="https://www.jobboardfinder.com/news/wp-content/uploads/2017/03/GD-logo-green-on-white-01-min.png"
+                        class="jobsearch" alt=""></a>
+            </div>
+    
+        </div>
+    
+    </div>
+    
+    <script>
+        const modal = document.getElementById('jobs-modal')
+        const nav = document.getElementById('nav-jobs')
+    
+        nav.addEventListener('click', function() {
+            modal.style.display = 'block'
+        })
+        window.addEventListener('click', function(e) {
+            if (e.target == modal) {
+                modal.style.display = 'none'
+            }
+        })
+    </script>
 </body>
 
 </html>

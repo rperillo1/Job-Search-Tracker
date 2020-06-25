@@ -83,7 +83,7 @@ span.step {
 
 .applications button {
     background-color: var(--main-nav);
-    border-radius: 1em;
+    border-radius: 1.25em;
 }
 
 .applications a {
@@ -246,6 +246,34 @@ span.step {
 
 .glassdoor {
     display: none;
+}
+
+.modal-div {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 200px; 
+    left: 0;
+    top: 0;
+    width: 110%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.6);
+}
+
+.jobs-modal-content {
+    text-align: center;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--main-accent);
+    width: 80%;
+    min-height: 25%;
+    border-radius: 1.5em;
+  }
+.jobs-modal-content h2 {
+    color: var(--main-accent);
 }
 
 
