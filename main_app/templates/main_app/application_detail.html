@@ -106,8 +106,9 @@
 
             <div class="myBar label-center uk-align-center app-fan">
                 Interest Level:
-                <br>
+                <br><br>
             </div>
+            <hr class="uk-divider-icon">
             <h4>{{ application.description }}</h4>
             <h4>{{ application.notes }}</h4>
             <hr class="uk-divider-icon">
@@ -118,7 +119,7 @@
                         href="{% url 'application_update'  application.id %}">Update</a></button>
             </div>
         </div>
-        <div id="app" class="uk-width-1-3@m label-none app-detail">
+        <div id="app" class="uk-width-1-3@m label-none app-detail center">
             <section v-if="errored">
                 <p>sorry no info</p>
             </section>
@@ -142,13 +143,28 @@
                 </div>
                 <div v-else>
                     <!-- <template> -->
-                    <h2>More jobs from GitHub:</h2>
-                    <ul class="uk-list">
+                        <table class="uk-table uk-table-hover uk-table-striped">
+                            <caption class="center"><h2>More jobs from GitHub:</h2></caption>
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Title</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tr v-for="job in info" :key="job.id">
+                                <td><a :href="job.url" target="_blank">${ job.company }</a></td>
+                                <td>${ job.title }</td>
+                                <td>${ job.location }</td>
+                            </tr>
+                        </table>
+                    
+                    <!-- <ul class="uk-list">
                         <li v-for="job in info" :key="job.id">
                             <a :href="job.url" target="_blank">${ job.company }, ${ job.title }, ${ job.location }</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- </template> -->
             </section>
         </div>
@@ -163,7 +179,7 @@
 
     var bar = new ldBar(".myBar", {
         "stroke": "#57B4D3",
-        "stroke-width": 10,
+        "stroke-width": 17,
         "preset": "fan",
         "min": 0,
         "max": 10,

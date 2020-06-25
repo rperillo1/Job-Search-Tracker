@@ -186,6 +186,14 @@ span.step {
 .update-btn:hover {
     background-color: rgb(223, 223, 71);
 }
+<<<<<<< HEAD
+=======
+
+.uk-table-hover tbody tr:hover {
+    background: var(--main-accent);
+}
+
+>>>>>>> 2fc21d91aec1e536aab02b43ab289d2b11e89a33
 .sign_up_container {
     width: 800px;
     margin: 0 auto;
@@ -206,3 +214,7 @@ span.step {
   .sign_up {
       margin: 60px;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fc21d91aec1e536aab02b43ab289d2b11e89a33
