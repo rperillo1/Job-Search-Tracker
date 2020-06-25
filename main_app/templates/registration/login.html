@@ -2,16 +2,17 @@
 {% block content %}
 <div class="ui-kit-grid">
     <div class="uk-container-center login-div uk-position-top-center">
-        <div class="uk-width-1-1" >
-        <h1 class="center">Log In</h1>
+        <div class="uk-width-1-1">
+            <h1 class="center">Log In</h1>
 
-        <form class="uk-form login-form uk-" method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input id="login-button" type="submit" class="uk-button uk-button-primary uk-align-center" value="log in">
-            <input type="hidden" name="next" value="{{ next }}">
-        </form>
-    </div>
+            <form class="uk-form login-form uk-" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input id="login-button" type="submit" class="uk-button uk-button-primary uk-align-center"
+                    value="log in">
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+        </div>
     </div>
 </div>
 
