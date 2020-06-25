@@ -275,6 +275,13 @@ span.step {
 .jobs-modal-content h2 {
     color: var(--main-accent);
 }
+footer {
+    background-color: var(--main-nav);
+    text-align: center;
+    color: var(--main-accent);
+    margin-top: 10vh;
+    font-style: italic;
+}
 
 
 @media only screen and (min-width: 530px) {
