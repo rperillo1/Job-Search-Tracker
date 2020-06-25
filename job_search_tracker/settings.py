@@ -118,6 +118,6 @@ LOGIN_REDIRECT_URL = "/applications/"
 LOGOUT_REDIRECT_URL = "/"
 
 
-# import django_heroku
+import django_heroku
+django_heroku.settings(locals())
 
-# django_heroku.settings(locals())
