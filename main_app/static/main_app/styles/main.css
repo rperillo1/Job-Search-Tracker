@@ -186,3 +186,7 @@ span.step {
 .update-btn:hover {
     background-color: rgb(223, 223, 71);
 }
+
+.uk-table-hover tbody tr:hover {
+    background: var(--main-accent);
+}
