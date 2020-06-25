@@ -16,7 +16,6 @@ body {
 .uk-navbar-nav li a {
     color: var(--main-accent);
     font-size: 1.25em;
-
 }
 
 #hero {
@@ -44,13 +43,11 @@ body {
     margin-top: 4vh;
     padding: 1em 5em;
     border-radius: 18px;
-
 }
 
 #call button a {
     color: var(--main-accent);
     font-size: 1.7em;
-
 }
 
 .cards img {
@@ -62,8 +59,7 @@ body {
     text-align: center;
 }
 
-#brand h2,
-#brand h5 {
+#brand h2, #brand h5 {
     color: white;
 }
 
@@ -126,8 +122,7 @@ span.step {
     text-align: center;
 }
 
-.app-detail h1,
-.app-detail h2 {
+.app-detail h1, .app-detail h2 {
     font-weight: bolder;
 }
 
@@ -141,6 +136,7 @@ span.step {
     justify-content: space-around;
     align-items: center;
 }
+
 .flex-container button {
     border-radius: 1em;
 }
@@ -156,10 +152,12 @@ span.step {
 .app-form {
     margin-top: 8vh;
 }
+
 .app-fan .ldBar-label:after {
     content: "";
     font-size: 1em;
 }
+
 .app-fan {
     color: black;
 }
@@ -167,6 +165,7 @@ span.step {
 .login-div {
     margin-top: 25vh;
 }
+
 #login-button {
     background-color: var(--main-accent);
     border-radius: .5em;
@@ -195,28 +194,43 @@ span.step {
 }
 
 .sign_up_container {
-    width: 800px;
+    width: 100vw;
     margin: 0 auto;
 }
-.helptext{
+
+.helptext {
     visibility: hidden;
-  }
+}
+
 .sign_up_container h1 {
-      text-align: center;
-      color: var(--main-accent);
-  }
-  .sign_up .btn{
-      width: 100px;
-      height: 20px;
-      color: white;
-      background-color: var(--main-accent);
-  }
-  .sign_up {
-      margin: 60px;
-  }
+    text-align: center;
+    color: var(--main-accent);
+}
+
+.sign_up .btn {
+    width: 100px;
+    height: 20px;
+    color: white;
+    background-color: var(--main-accent);
+}
+
+.sign_up {
+    margin: 60px;
+}
+
+.sign_up p {
+    margin: 1vmin;
+}
 
   .app-text {
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 1em;
       padding: 2.5em 2.5em;
   }
+
+.jobsearch{
+    width: 400px;
+    height: 120px;  
+    margin: 30px;
+}
+
