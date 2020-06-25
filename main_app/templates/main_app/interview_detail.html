@@ -14,10 +14,12 @@
         <h4 class='interview-info'>{{ interview.rating }}</h4>
 
         <hr class="uk-divider-icon">
-        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
-                href="{% url 'interview_delete' interview.application_id interview.id %}">Delete</a></button>
-        <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
-                href="{% url 'interview_update' interview.application_id interview.id %}">Update</a></button>
+        <div class='flex-container'>
+            <button class="uk-button uk-button-danger uk-align-center"><a class="danger-button"
+                    href="{% url 'interview_delete' interview.application_id interview.id %}">Delete</a></button>
+            <button class="uk-button uk-button-danger uk-align-center update-btn"><a class="danger-button"
+                    href="{% url 'interview_update' interview.application_id interview.id %}">Update</a></button>
+        </div>
     </div>
 </div>
 
