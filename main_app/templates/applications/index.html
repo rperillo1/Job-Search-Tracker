@@ -5,9 +5,9 @@
 
 
 <div id="app-hero" class="uk-cover-container">
-    <img src="{% static 'main_app/img/app_index.jpg' %}" alt="hero image">
+    <img src="{% static 'main_app/img/app_index2.jpg' %}" alt="hero image">
     <!-- Photo by JESHOOTS.COM on Unsplash -->
-    <div class="uk-position-center">
+    <div class="uk-position-center app-text">
         <h1>{{ user.username|capfirst }}'s Current Applications</h1>
         <button class="uk-button uk-button-default uk-align-center"><a href="{% url 'applications_create' %}">Add an
                 application</a></button>
