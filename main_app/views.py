@@ -29,9 +29,12 @@ def signup(request):
     context = {"form": form, "error_message": error_message}
     return render(request, "registration/signup.html", context)
 
+
 @login_required
 def applications_index(request):
-    applications = Application.objects.filter(user=request.user)
+    applications = Application.objects.filter(user=request.user).order_by(
+        "-interest_level"
+    )
     user = request.user
 
     return render(
@@ -77,8 +80,9 @@ class ApplicationUpdate(UpdateView, LoginRequiredMixin):
         "salary",
         "interest_level",
         "description",
-        'notes'
+        "notes",
     ]
+
 
 @login_required
 def interview_index(request, app_id):
@@ -89,6 +93,7 @@ def interview_index(request, app_id):
         {"application_id": app_id, "interviews": interviews,},
     )
 
+
 @login_required
 def interview_form(request, app_id):
     return render(
@@ -96,6 +101,7 @@ def interview_form(request, app_id):
         "interviews/form.html",
         {"application_id": app_id, "interview": InterviewForm},
     )
+
 
 @login_required
 def interview_create(request, app_id):
