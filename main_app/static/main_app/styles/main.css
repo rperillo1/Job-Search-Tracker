@@ -187,6 +187,10 @@ span.step {
     background-color: rgb(223, 223, 71);
 }
 
+.uk-table-hover tbody tr:hover {
+    background: var(--main-accent);
+}
+
 .sign_up_container {
     width: 800px;
     margin: 0 auto;
@@ -207,3 +211,4 @@ span.step {
   .sign_up {
       margin: 60px;
   }
+

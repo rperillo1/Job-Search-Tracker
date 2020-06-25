@@ -27,7 +27,7 @@ const vueApp = new Vue({
         .then(response => {
             console.log(response.headers)
             console.log(response.config)
-            this.info = response.data.slice(0,5) 
+            this.info = response.data.slice(0,10) 
         })
         .catch(error => {
             console.log(error)
