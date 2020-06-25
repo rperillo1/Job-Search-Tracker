@@ -31,7 +31,7 @@ def signup(request):
 
 @login_required
 def applications_index(request):
-    applications = Application.objects.filter(user=request.user)
+    applications = Application.objects.filter(user=request.user).order_by('-interest_level')
     user = request.user
 
     return render(
