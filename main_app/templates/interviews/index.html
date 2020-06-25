@@ -2,11 +2,12 @@
 {% block content %}
 
 <div class='flex-container'>
-    <h1>Interviews below:</h1>
+    <h1 id='int-header'>Interviews below:</h1>
 </div>
 <div class='flex-container'>
-    <a href="{% url 'interview_form' application_id %}">
-        <h4>Create New Interview</h4>
+    <button class="uk-button uk-button-default uk-align-center create-int-btn">
+        <a href="{% url 'interview_form' application_id %}">Create New Interview</a>
+    </button>
     </a>
 </div>
 
