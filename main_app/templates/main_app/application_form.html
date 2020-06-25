@@ -19,4 +19,14 @@
   <input type="submit" value="Submit!" class="uk-button uk-button-secondary uk-align-center">
 </form>
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script>
+  $( function() {
+    $( '#id_date_applied' ).attr('autocomplete', 'off')
+    $( '#id_date_applied' ).datepicker()
+  })
+</script>
 {% endblock %}

@@ -36,7 +36,7 @@
 
 
             <button class="uk-button uk-button-default"><a
-                    href="{% url 'interview_index' application.id %}">{{ application.title }} Interviews</a></button>
+                    href="{% url 'interview_index' application.id %}">{{ application.company }}/{{ application.title }} Interviews</a></button>
         </div>
     </div>
     {% endfor %}
