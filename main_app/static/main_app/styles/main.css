@@ -99,6 +99,19 @@ span.step {
     height: 45vh;
 }
 
+#app-hero-1 {
+    height: 10vh;
+}
+
+#app-hero-1 button {
+    background-color: var(--main-accent);
+    border-radius: 1.5em;
+}
+
+#app-hero-1 a {
+    color: white;
+}
+
 #app-hero a {
     color: white;
 }
@@ -266,6 +279,9 @@ span.step {
     color: white;
 }
 
+.create-int-btn button:hover {
+    background-color: var(--main-accent);
+}
 
 @media only screen and (min-width: 530px) {
     .logo-container {

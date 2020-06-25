@@ -4,11 +4,12 @@
 <div class='flex-container'>
     <h1 id='int-header'>Interviews below:</h1>
 </div>
-<div class='flex-container'>
-    <button class="uk-button uk-button-default uk-align-center create-int-btn">
-        <a href="{% url 'interview_form' application_id %}">Create New Interview</a>
-    </button>
-    </a>
+
+<div id="app-hero-1" class="uk-cover-container">
+    <div class="uk-position-center app-text">
+        <button class="uk-button uk-button-default uk-align-center"><a
+                href="{% url 'interview_form' application_id %}">Create New Interview</a></button>
+    </div>
 </div>
 
 <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
