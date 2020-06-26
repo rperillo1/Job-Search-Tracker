@@ -22,10 +22,6 @@
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
                 {% if user.is_authenticated %}
-                {% comment %}
-                <!-- fix url here -->
-                <!-- <li><a href="{% url 'toys_create' %}">Add Application</a></li> -->
-                {% endcomment%}
                 <li><a href="{% url 'applications_index' %}">Applications</a></li>
                 <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {% else %}
@@ -44,14 +40,17 @@
         </div>
 
         <div id="call" class="uk-cover-container" uk-grid>
+            {% if user.is_authenticated %}
+            <div class="uk-width-1-1 uk-align-center">
+                <h2>Check in on all your applications now!</h2>
+                <button class="uk-button uk-button-default"><a href="{% url 'applications_index' %}">View Applications</a></button> 
+            </div>
+            {% else %}
             <div class="uk-width-1-1 uk-align-center">
                 <h4>Need assistance tracking all of your applications? We can HELP!</h4>
-                <!-- <h4>Nihil corrupti earum ipsum soluta aut. Est soluta repellendus, 
-                    cumque, rem sint cum voluptatibus molestiae facilis eius possimus
-                    io nulla necessitatibus voluptates.
-                </h4> -->
                 <button class="uk-button uk-button-default"><a href="{% url 'signup' %}">Sign Up</a></button> 
             </div>
+            {% endif %}
         </div>
         <div id="brand" class="uk-cover-container" uk-grid>
             <div class="uk-width-1-1 uk-align-center">
