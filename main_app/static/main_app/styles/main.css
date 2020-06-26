@@ -59,7 +59,8 @@ body {
     text-align: center;
 }
 
-#brand h2, #brand h5 {
+#brand h2,
+#brand h5 {
     color: white;
 }
 
@@ -135,7 +136,8 @@ span.step {
     text-align: center;
 }
 
-.app-detail h1, .app-detail h2 {
+.app-detail h1,
+.app-detail h2 {
     font-weight: bolder;
 }
 
@@ -263,16 +265,16 @@ span.step {
 
 .modal-div {
     display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 200px; 
+    position: fixed;
+    z-index: 1;
+    padding-top: 200px;
     left: 0;
     top: 0;
-    width: 110%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.6);
+    width: 110%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .jobs-modal-content {
@@ -284,7 +286,8 @@ span.step {
     width: 80%;
     min-height: 25%;
     border-radius: 1.5em;
-  }
+}
+
 .jobs-modal-content h2 {
     color: var(--main-accent);
 }
@@ -294,7 +297,7 @@ span.step {
     padding-top: 3vw;
 }
 
-.create-int-btn{
+.create-int-btn {
     background-color: var(--main-accent);
 }
 

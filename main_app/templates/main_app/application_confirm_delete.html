@@ -8,13 +8,14 @@
 <div class='flex-container'>
   <div class="uk-child-width-1-1@m uk-grid-match" uk-grid>
     <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-      <h4 class="uk-card-title">Are you sure you want to delete <span class="teal-text">{{ application.title }}</span>?</h4>
+      <h4 class="uk-card-title">Are you sure you want to delete <span class="teal-text">{{ application.title }}</span>?
+      </h4>
       <form action="" method="POST">
         {% csrf_token %}
         <div class='flex-container'>
-        <input type="submit" value="Yes - Delete!" class="uk-button uk-button-default">
-        <a href="{% url 'applications_show' application.id %}" class="uk-button uk-button-default">Cancel</a>
-      </div>
+          <input type="submit" value="Yes - Delete!" class="uk-button uk-button-default">
+          <a href="{% url 'applications_show' application.id %}" class="uk-button uk-button-default">Cancel</a>
+        </div>
       </form>
     </div>
   </div>
