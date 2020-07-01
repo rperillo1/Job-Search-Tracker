@@ -32,7 +32,11 @@ Technologies:
 Getting Started:
 
 Link: [Visit Our App](https://job-search-trackr.herokuapp.com)
+<br>
+
 Link: [Trello Boark](https://trello.com/b/RTtHylwj/job-search-tracker)
+<br>
+
 Link: [Pitch Deck](https://docs.google.com/presentation/d/10zf2oZSI9myaVXdLPyLGh_F-Zg_MlLgvhy7xPkgpb-E/edit#slide=id.p)
 
 
